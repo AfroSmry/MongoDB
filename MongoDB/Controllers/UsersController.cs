@@ -29,8 +29,8 @@ namespace MongoDB.Controllers
         {
             return View();
         }
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpPost]
+        public async Task<IActionResult> Dell(string id)
         {
             var user = await _usersService.GetAsync(id);
 
@@ -42,25 +42,11 @@ namespace MongoDB.Controllers
             await _usersService.RemoveAsync(id);
             return RedirectToAction("Index");
         }
-
-        [HttpGet]
-        public async Task<List<User>> Get() =>
-            await _usersService.GetAsync();
-
-        [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<User>> Get(string id)
+        public async Task<IActionResult> Update()
         {
-            var user = await _usersService.GetAsync(id);
-
-            if (user is null)
-            {
-                return NotFound();
-            }
-
-            return user;
+            return View();
         }
-
-        [HttpPut("{id:length(24)}")]
+        [HttpPost]
         public async Task<IActionResult> Update(string id, User updatedUser)
         {
             var user = await _usersService.GetAsync(id);
@@ -74,22 +60,7 @@ namespace MongoDB.Controllers
 
             await _usersService.UpdateAsync(id, updatedUser);
 
-            return NoContent();
+            return RedirectToAction("Index");
         }
-        /*
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            var user = await _usersService.GetAsync(id);
-
-            if (user is null)
-            {
-                return NotFound();
-            }
-
-            await _usersService.RemoveAsync(id);
-
-            return NoContent();
-        }*/
     }
 }

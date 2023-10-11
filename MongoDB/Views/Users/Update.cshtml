@@ -1,0 +1,34 @@
+﻿@model MongoDB.Models.User
+@using (Html.BeginForm())
+{
+    <h3>Введите Id пользователя для обновления </h3>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>@Html.TextBoxFor(x => x.Id)</td>
+        </tr>
+        <tr>
+            <td>Имя</td>
+            <td>@Html.TextBoxFor(x => x.FirstName)</td>
+        </tr>
+        <tr>
+            <td>Фамилия</td>
+            <td>@Html.TextBoxFor(x => x.SecondName)</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Html.TextBoxFor(x => x.Email)</td>
+        </tr>
+        <tr>
+            <td>Телефон</td>
+            <td>@Html.TextBoxFor(x => x.Phone)</td>
+        </tr>
+        <tr>
+            <td>Пароль</td>
+            <td>@Html.PasswordFor(x => x.Password)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="update" /></td>
+        </tr>
+    </table>
+}
