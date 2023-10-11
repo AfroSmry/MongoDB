@@ -1,0 +1,14 @@
+﻿@model MongoDB.Models.User
+@using (Html.BeginForm())
+{
+    <h3>Введите Id пользователя для удаления </h3>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>@Html.TextBoxFor(x => x.Id)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Delite" /></td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<MongoDB.Models.User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Список пользователей</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <a href="~/users/Add/">Добавить пользователя.</a>
+    </div>
+    <div>
+        <a href="~/users/Dell/">Удалить пользователя.</a>
+    </div>
+    <table>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>Id: @user.Id |</td>
+                <td>Имя: @user.FirstName |</td>
+                <td>Фамилия: @user.SecondName |</td>
+                <td>Email: @user.Email |</td>
+                <td>Телефон: @user.Phone |</td>
+            </tr>
+        }
+    </table>
+}
